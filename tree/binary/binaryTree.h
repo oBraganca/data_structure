@@ -8,7 +8,7 @@ typedef struct{
 }BinaryTree;
 
 void initializeBinaryTree(BinaryTree *b_tree);
-void insert(Node *node, int value, Node *parent );
+void insert(Node **node, int value, Node *parent );
 Node *search(Node *node, int value);
 void deletNode(BinaryTree *b_tree);
 void preorder(BinaryTree *b_tree);
