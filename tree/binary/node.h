@@ -1,11 +1,11 @@
 #ifndef NODE_H
 #define NODE_H
 
-typedef struct Node{
+typedef struct BinaryTreeNode {
     int key;
-    struct Node *p;
-    struct Node *left;
-    struct Node *right;
-}Node;
+    struct BinaryTreeNode *p;   // Ponteiro para o nó pai
+    struct BinaryTreeNode *left;
+    struct BinaryTreeNode *right;
+} BinaryTreeNode;
 
 #endif

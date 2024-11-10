@@ -2,40 +2,47 @@
 #include <stdlib.h>
 #include "binaryTree.h"
 
-
-void initializeBinaryTree(BinaryTree *b_tree){
-    b_tree->root=NULL;
+BinaryTreeNode* createNode(int key) {
+    BinaryTreeNode* newNode = (BinaryTreeNode*)malloc(sizeof(BinaryTreeNode));
+    newNode->key = key;
+    newNode->left = newNode->right = NULL;
+    newNode->p = NULL;
+    return newNode;
 }
 
-void insert(Node **node, int value, Node *parent){
-    if (*node == NULL) {
-        *node = (Node*)malloc(sizeof(Node));
-        (*node)->key = value;
-        (*node)->left = (*node)->right = NULL;
-        (*node)->p = parent;  // Atribui o nó pai
-        return;
+BinaryTreeNode* insert(BinaryTreeNode* root, int key) {
+    if (root == NULL) {
+        return createNode(key);
     }
 
-    if (value < (*node)->key) {
-        insert(&(*node)->left, value, *node);
-    } else {
-        insert(&(*node)->right, value, *node);
+    if (key < root->key) {
+        root->left = insert(root->left, key);
+        root->left->p = root;
+    } else if (key > root->key) {
+        root->right = insert(root->right, key);
+        root->right->p = root;
     }
+
+    return root;
 }
 
 
-Node* search(Node *node, int value) {
-    if (node == NULL) {
-        return NULL;
-    }
-
-    if (node->key == value) {
+BinaryTreeNode* search(BinaryTreeNode *node, int value) {
+    if (node == NULL || node->key == value) {
         return node;
     }
-
     if (value < node->key) {
         return search(node->left, value);
     } else {
         return search(node->right, value);
     }
+}
+
+void clear(BinaryTreeNode *node) {
+    if (node == NULL) {
+        return;
+    }
+    clear(node->left);
+    clear(node->right);
+    free(node);
 }

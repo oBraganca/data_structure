@@ -10,22 +10,22 @@
 
 
 int main(){
-    BinaryTree b_tree;
+    BinaryTreeNode *root = NULL;
 
-    initializeBinaryTree(&b_tree);
-    insert(&b_tree.root, 6, NULL);  // A raiz não tem pai
-    insert(&b_tree.root, 1, NULL);
-    insert(&b_tree.root, 11, NULL);
-    insert(&b_tree.root, 2, NULL);
-    insert(&b_tree.root, 10, NULL);
-    insert(&b_tree.root, 9, NULL);
-    insert(&b_tree.root, 3, NULL);
-    insert(&b_tree.root, 4, NULL);
-    insert(&b_tree.root, 8, NULL);
-    insert(&b_tree.root, 7, NULL);
-    insert(&b_tree.root, 5, NULL);
+    root = insert(root, 6);
+    insert(root, 1);
+    insert(root, 11);
+    insert(root, 2);
+    insert(root, 10);
+    insert(root, 9);
+    insert(root, 3);
+    insert(root, 4);
+    insert(root, 8);
+    insert(root, 7);
+    insert(root, 5);
 
-    Node* searched = search(b_tree.root, 5);
+
+    BinaryTreeNode* searched = search(root, 5);
     if (searched != NULL) {
         printf("Valor encontrado: %d\n", searched->key);
     } else {
