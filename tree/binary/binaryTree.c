@@ -38,6 +38,36 @@ BinaryTreeNode* search(BinaryTreeNode *node, int value) {
     }
 }
 
+
+void preorder(BinaryTreeNode *node){
+    if(node == NULL){
+        return;
+    }
+    printf("%d ", node->key);
+    preorder(node->left);
+    preorder(node->right);
+}
+
+void inorder(BinaryTreeNode *node){
+    if(node == NULL){
+        return;
+    }
+    inorder(node->left);
+    printf("%d ", node->key),
+    inorder(node->right);
+}
+
+void postorder(BinaryTreeNode *node){
+    if(node == NULL){
+        return;
+    }
+
+    preorder(node->left);
+    preorder(node->right);
+    printf("%d ", node->key);
+
+}
+
 void clear(BinaryTreeNode *node) {
     if (node == NULL) {
         return;

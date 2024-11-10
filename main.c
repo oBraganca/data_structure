@@ -25,6 +25,16 @@ int main(){
     insert(root, 5);
 
 
+    printf("BST In Order: ");
+    inorder(root);
+    printf("\nBST Pre Order: ");
+    preorder(root);
+    printf("\nBST Post Order: ");
+    postorder(root);
+
+    printf("\n");   
+
+
     BinaryTreeNode* searched = search(root, 5);
     if (searched != NULL) {
         printf("Valor encontrado: %d\n", searched->key);

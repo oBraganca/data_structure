@@ -10,13 +10,9 @@ BinaryTreeNode* insert(BinaryTreeNode* node, int value);
 BinaryTreeNode* search(BinaryTreeNode *node, int value);
 void clear(BinaryTreeNode *node);
 void deletNode(BinaryTreeNode *node);
-// void preorder(BinaryTree *b_tree);
-// void inorder(BinaryTree *b_tree);
-// void postorder(BinaryTree *b_tree);
-// void levelorder(BinaryTree *b_tree);
-// int height(BinaryTree *b_tree);
-// int isEmpty(BinaryTree *b_tree);
-
+void preorder(BinaryTreeNode *node);
+void inorder(BinaryTreeNode *node);
+void postorder(BinaryTreeNode *node);
 
 
 #endif
